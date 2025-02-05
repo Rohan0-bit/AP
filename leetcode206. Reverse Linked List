@@ -1,0 +1,18 @@
+class Solution {
+    public ListNode reverseIt(ListNode temp) {
+        if(temp.next == null) {
+            return temp;
+        }
+        ListNode newhead = reverseIt(temp.next);
+        temp.next.next = temp;
+        temp.next = null;
+        return newhead;
+    }
+    public ListNode reverseList(ListNode head) {
+        if(head == null || head.next == null) {
+            return head;
+        }
+        ListNode newhead = reverseIt(head);
+        return newhead;
+    }
+}
